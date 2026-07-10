@@ -1,0 +1,25 @@
+[
+    {
+        "username": "standard_user",
+        "password": "secret_sauce",
+        "product": "backpack",
+        "firstname": "Gege",
+        "lastname": "Sicka",
+        "postalcode": "1000",
+        "expected": "success",
+        "run": "yes"
+    },
+
+    {
+        "username": "standard_user",
+        "password": "secret_sauce",
+        "product": "backpack",
+        "firstname": "",
+        "lastname": "",
+        "postalcode": "1000",
+        "expected": "error",
+        "run": "yes"
+    }
+]
+
+
