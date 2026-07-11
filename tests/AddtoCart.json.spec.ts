@@ -47,6 +47,11 @@ CartData.forEach((data) => {
             await inventoryPage.OpenChart();
         })
 
+        await test.step('User Logout', async () => {
+
+            await inventoryPage.OpenMenu();
+        })
+
         await page.pause()
 
     })
