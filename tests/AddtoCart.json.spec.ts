@@ -1,6 +1,4 @@
-import { test, expect } from '@playwright/test'
-
-import { LoginPage } from '../pages/LoginPages'
+import { test, expect } from '../fixtures/loginfixtures'
 
 import { InventoryPage } from '../pages/InventoryPages'
 
@@ -12,25 +10,15 @@ CartData.forEach((data) => {
 
     if (data.run !== 'yes') return;
 
-    test (`Add  to Cart - ${data.product}`, async ({ page }) => {
+    test (`Add  to Cart - ${data.product}`, async ({ page, loggedinPage }) => {
 
-        const loginPage = new LoginPage(page);
+
+        await test.step('Check the correct URL', async () => {
+
+            await expect(page).toHaveURL('https://www.saucedemo.com/inventory.html');
+        })
+        
         const inventoryPage = new InventoryPage(page);
-
-        await test.step('Browse to saucdemo.com', async () => {
-        
-            await loginPage.gotoLoginPage();
-        })
-
-        
-        await test.step('Input valid Credentials', async () => {
-
-            await loginPage.login (
-                data.username,
-                data.password
-            )
-        })
-
         
         await test.step ('Add product to cart', async () => {
 

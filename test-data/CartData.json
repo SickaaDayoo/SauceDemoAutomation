@@ -1,16 +1,14 @@
 [
     {
-        "username": "standard_user",
-        "password": "secret_sauce",
+      
         "product": "backpack",
         "expected": "1",
         "run": "yes"
     },
+
     {
-        "username": "locked_out_user",
-        "password": "secret_sauce",
-        "product": "backpack",
-        "expected": "error",
-        "run": "no"
+        "product": "bike-light",
+        "expected": "1",
+        "run": "yes"
     }
 ]
