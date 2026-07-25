@@ -1,8 +1,8 @@
 
 
-import { test, expect } from '@playwright/test'
+// import { test, expect } from '@playwright/test'
 
-import { LoginPage } from '../pages/LoginPages'
+import { test, expect } from '../fixtures/loginfixtures'
 
 import { InventoryPage } from '../pages/InventoryPages'
 
@@ -17,26 +17,26 @@ CheckOutData.forEach((data) => {
 
     if (data.run !== 'yes') return;
 
-    test (`CheckProduct - ${data.product} - ${data.expected}`, async ({ page }) => {
+    test (`CheckProduct - ${data.product} - ${data.expected}`, async ({ page, loggedinPage }) => {
 
-        const loginPage = new LoginPage(page);
-        const inventoryPage = new InventoryPage(page);
+        // const loginPage = new LoginPage(page);
+        const inventoryPage = new InventoryPage(page); 
         const cartPage = new CartPage(page);
         const checkoutPage = new CheckOutPage(page);
 
-        await test.step('Browse to saucdemo.com', async () => {
+        // await test.step('Browse to saucdemo.com', async () => {
         
-            await loginPage.gotoLoginPage();
-        })
+        //     await loginPage.gotoLoginPage();
+        // })
 
         
-        await test.step('Input valid Credentials', async () => {
+        // await test.step('Input valid Credentials', async () => {
 
-            await loginPage.login (
-                data.username,
-                data.password
-            )
-        })
+        //     await loginPage.login (
+        //         data.username,
+        //         data.password
+        //     )
+        // })
 
         await test.step ('Add product to cart', async () => {
 
